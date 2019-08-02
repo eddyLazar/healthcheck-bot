@@ -1,9 +1,3 @@
-// type CheckUrlType = (
-//   url: string,
-//   request: Function,
-//   onError: Function
-// ) => Promise<void>;
-
 type MakeRequest = (url: string) => Promise<void>;
 
 export default async (
