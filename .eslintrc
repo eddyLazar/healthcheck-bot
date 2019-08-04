@@ -16,7 +16,8 @@
     "indent": ["error", 2],
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/explicit-member-accessibility": "off",
-    "space-before-function-paren": "off"
+    "space-before-function-paren": "off",
+    "@typescript-eslint/no-explicit-any": "off"
   },
   "env": {
     "jest": true
