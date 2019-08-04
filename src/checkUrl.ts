@@ -1,15 +1,11 @@
 type MakeRequest = (url: string) => Promise<void>;
 
 export default async (
-  url: string,
-  request: MakeRequest,
+  urls: string[],
+  makeRequest: MakeRequest,
   onError: Function
-): Promise<boolean> => {
-  try {
-    await request(url);
-    return true;
-  } catch (error) {
-    onError();
-    return false;
+): Promise<void> => {
+  for (const url of urls) {
+    makeRequest(url).catch(() => onError(url));
   }
 };
