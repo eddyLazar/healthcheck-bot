@@ -1,4 +1,4 @@
-import checkUrl from './checkUrl';
+import checkUrls from './checkUrls';
 
 describe('given two valid urls', () => {
   const mockUrls = ['http://google.com', 'http://google2.com'];
@@ -6,7 +6,7 @@ describe('given two valid urls', () => {
   const makeRequest = jest.fn().mockResolvedValue(true);
 
   test('should make request with each url', async () => {
-    await checkUrl(mockUrls, makeRequest, onError);
+    await checkUrls(mockUrls, makeRequest, onError);
     expect(makeRequest).toHaveBeenCalledWith(mockUrls[0]);
     expect(makeRequest).toHaveBeenCalledWith(mockUrls[1]);
   });
@@ -18,11 +18,11 @@ describe("when url doesn't work", () => {
   const mockUrls = ['http://google.com', 'http://google2.com'];
 
   test('should call error handler', async () => {
-    await checkUrl(mockUrls, makeRequest, onError);
+    await checkUrls(mockUrls, makeRequest, onError);
     expect(onError).toHaveBeenCalledTimes(2);
   });
   test('should pass url to error handler', async () => {
-    await checkUrl(mockUrls, makeRequest, onError);
+    await checkUrls(mockUrls, makeRequest, onError);
     expect(onError).toHaveBeenCalledWith(mockUrls[0]);
   });
 });

@@ -1,9 +1,9 @@
-import { TelegramBotType } from 'app';
+import { IBot } from 'app';
 
 const composeAlert = (url: string) => `❗️${url} is down`;
 const composeOk = (url: string) => `✅${url} is up`;
 
-export default (bot: TelegramBotType, channelId: string) => ({
-  sendAlert: (url: string) => bot.sendMessage(channelId, composeAlert(url)),
-  sendOk: (url: string) => bot.sendMessage(channelId, composeOk(url))
+export default (bot: IBot, chatId: string) => ({
+  sendAlert: (url: string) => bot.sendMessage(chatId, composeAlert(url)),
+  sendOk: (url: string) => bot.sendMessage(chatId, composeOk(url))
 });

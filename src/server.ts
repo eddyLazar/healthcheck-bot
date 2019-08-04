@@ -1,9 +1,10 @@
-import express from 'express';
-import concat from './somemodule/concat';
+import config from './config';
+import bootstrap from './bootstrap';
 
-const app = express();
-const port = 3000;
+const { app, job } = bootstrap();
 
-app.get('/', (req, res) => res.send(concat('hello ', 'world')));
+setInterval(job, config.timeout);
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+app.listen(config.port, () =>
+  console.log(`Example app listening on port ${config.port}!`)
+);
