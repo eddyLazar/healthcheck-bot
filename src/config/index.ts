@@ -1,6 +1,10 @@
 import dotenv from 'dotenv';
+import Joi from '@hapi/joi';
+import configSchema from './config-schema';
 
 dotenv.config();
+
+Joi.assert(process.env, configSchema);
 
 class ConfigError extends Error {}
 
@@ -21,5 +25,6 @@ export default {
   botToken: process.env.BOT_TOKEN,
   telegramChannel: process.env.TELEGRAM_CHANNEL,
   timeout: parseInt(process.env.TIMEOUT || '10000'),
+  // @ts-ignore-line
   urls: process.env.URLS.split(',')
 };

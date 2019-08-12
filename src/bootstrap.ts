@@ -1,24 +1,30 @@
 import TelegramBot from './bots/telegram';
 import config from './config';
-import makeRequest from './lib/makeRequest';
 import express from 'express';
 import HealthCheck from './services/HealthCheck';
-import createCheckUrl from './lib/createCheckUrl';
+import makeRequest from './lib/makeRequest';
 
 const bootstrap = () => {
   const telegramBot = new TelegramBot(config.telegramChannel, config.botToken, {
     polling: true
   });
 
-  const checkUrl = createCheckUrl(makeRequest);
-
-  const healthCheckService = new HealthCheck(config.urls, checkUrl);
-
-  healthCheckService.initReplies(telegramBot);
+  const healthCheckService = new HealthCheck(
+    telegramBot,
+    config.urls,
+    makeRequest
+  );
 
   const job = () => {
-    healthCheckService.checkAll(telegramBot);
+    healthCheckService.checkAll(config.telegramChannel);
   };
+
+  telegramBot.onCheckCommand(msgId =>
+    healthCheckService.checkAll(msgId, {
+      success: true,
+      alert: true
+    })
+  );
 
   const app = express();
 

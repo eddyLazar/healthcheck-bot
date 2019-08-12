@@ -1,17 +1,13 @@
 import { Message } from 'node-telegram-bot-api';
 
+type ChatDestination = string | number;
+
 export type MakeRequest = (url: string) => Promise<any>;
 
-export type OnMessgeCallbackType = (msgId: string | number) => void;
+export type CommandCallbackType = (msgId: ChatDestination) => void;
 
 export interface IBot {
-  sendOk(url: string, chatId?: string | number): Promise<any>;
-  sendAlert(url: string, chatId?: string | number): Promise<any>;
-  onMessage(cb: OnMessgeCallbackType): void;
+  sendOk(url: string, chatId: ChatDestination): Promise<any>;
+  sendAlert(url: string, chatId: ChatDestination): Promise<any>;
+  onCheckCommand(cb: CommandCallbackType): void;
 }
-
-export type CheckUrlType = (
-  url: string,
-  onError: Function,
-  onSuccess?: Function
-) => Promise<any>;
