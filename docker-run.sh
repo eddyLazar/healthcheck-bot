@@ -1,1 +1,1 @@
-docker run -p 49160:8080  --env-file=.env  eddylazar/telegram-healthcheck-bot
+docker run -p 49160:8080  --env-file=.env  eddylazar/healthcheck-bot

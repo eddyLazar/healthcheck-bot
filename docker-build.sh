@@ -1,1 +1,1 @@
-docker build -t eddylazar/telegram-healthcheck-bot .
+docker build -t eddylazar/healthcheck-bot .
