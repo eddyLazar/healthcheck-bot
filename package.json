@@ -9,7 +9,7 @@
     "lint": "eslint \"**/*.{js,ts}\" --quiet --fix",
     "build-ts": "tsc",
     "watch-ts": "tsc -w",
-    "build": "npm run build-ts && npm run lint",
+    "build": "npm run build-ts",
     "watch-node": "nodemon dist/server.js",
     "start": "node dist/server.js",
     "dev": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node,Jest\" -c \"yellow.bold,cyan.bold,green.bold\" \"npm run watch-ts\" \"npm run watch-node\" \"npm run watch-test\""
