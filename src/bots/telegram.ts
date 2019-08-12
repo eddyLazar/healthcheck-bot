@@ -1,5 +1,5 @@
 import TelegramBot from 'node-telegram-bot-api';
-import { OnMessgeCallbackType } from 'app';
+import { CommandCallbackType, ChatDestination } from 'app';
 import { composeAlert, composeOk } from './messages';
 
 export default class extends TelegramBot {
@@ -14,15 +14,15 @@ export default class extends TelegramBot {
     this.channelId = channelId;
   }
 
-  sendAlert(url: string, chatId = this.channelId) {
+  sendAlert(url: string, chatId: ChatDestination) {
     return this.sendMessage(chatId, composeAlert(url));
   }
 
-  sendOk(url: string, chatId = this.channelId) {
+  sendOk(url: string, chatId: ChatDestination) {
     return this.sendMessage(chatId, composeOk(url));
   }
 
-  onMessage(cb: OnMessgeCallbackType) {
+  onCheckCommand(cb: CommandCallbackType) {
     this.onText(/\/check/, msg => cb(msg.chat.id));
 
     this.on('channel_post', msg => {
