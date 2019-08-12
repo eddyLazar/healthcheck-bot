@@ -21,7 +21,7 @@ if (!process.env.TELEGRAM_CHANNEL) {
 }
 
 export default {
-  port: process.env.PORT || 3000,
+  port: process.env.PORT || 8080,
   botToken: process.env.BOT_TOKEN,
   telegramChannel: process.env.TELEGRAM_CHANNEL,
   timeout: parseInt(process.env.TIMEOUT || '10000'),

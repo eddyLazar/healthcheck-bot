@@ -28,6 +28,10 @@ const bootstrap = () => {
 
   const app = express();
 
+  app.get('/', (req, res) => {
+    res.send('Hello world\n');
+  });
+
   return { app, job };
 };
 
