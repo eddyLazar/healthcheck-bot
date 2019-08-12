@@ -1,18 +1,24 @@
-import TelegramBot from 'node-telegram-bot-api';
-import createMessages from './lib/messages';
-import checkUrls from './lib/checkUrls';
+import TelegramBot from './bots/telegram';
 import config from './config';
-import Axios from 'axios';
+import makeRequest from './lib/makeRequest';
 import express from 'express';
+import HealthCheck from './services/HealthCheck';
+import createCheckUrl from './lib/createCheckUrl';
 
 const bootstrap = () => {
-  const telegramBot = new TelegramBot(config.botToken, {
+  const telegramBot = new TelegramBot(config.telegramChannel, config.botToken, {
     polling: true
   });
 
-  const { sendAlert } = createMessages(telegramBot, config.telegramChannel);
+  const checkUrl = createCheckUrl(makeRequest);
 
-  const job = () => checkUrls(config.urls, Axios.get, sendAlert);
+  const healthCheckService = new HealthCheck(config.urls, checkUrl);
+
+  healthCheckService.initReplies(telegramBot);
+
+  const job = () => {
+    healthCheckService.checkAll(telegramBot);
+  };
 
   const app = express();
 
