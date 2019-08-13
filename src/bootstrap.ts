@@ -29,7 +29,7 @@ const bootstrap = () => {
   const app = express();
 
   app.get('/', (req, res) => {
-    res.send('Hello world 123\n');
+    res.send('Hello world update was great\n');
   });
 
   return { app, job };
