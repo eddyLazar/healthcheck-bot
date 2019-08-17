@@ -4,6 +4,8 @@
   "description": "",
   "main": "dist/server.js",
   "scripts": {
+    "watch-front": "parcel src/front/index.html watch",
+    "build-front": "parcel src/front/index.html build",
     "test": "jest --forceExit --coverage --verbose",
     "watch-test": "jest --forceExit --watchAll --verbose",
     "lint": "eslint \"**/*.{js,ts}\" --quiet --fix",
@@ -26,10 +28,12 @@
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-node": "^9.1.0",
     "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-standard": "^4.0.0",
     "husky": "^3.0.2",
     "jest": "^24.8.0",
     "nodemon": "^1.19.1",
+    "parcel-bundler": "^1.12.3",
     "ts-jest": "^24.0.2",
     "typescript": "^3.5.3"
   },
@@ -39,11 +43,15 @@
     "@types/express": "^4.17.0",
     "@types/hapi__joi": "^15.0.3",
     "@types/node-telegram-bot-api": "^0.31.0",
+    "@types/react-dom": "^16.8.5",
+    "antd": "^3.21.4",
     "axios": "^0.19.0",
     "dotenv": "^8.0.0",
     "eslint-config-standard": "^13.0.1",
     "express": "^4.17.1",
     "node-fetch": "^2.6.0",
-    "node-telegram-bot-api": "^0.30.0"
+    "node-telegram-bot-api": "^0.30.0",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
   }
 }
