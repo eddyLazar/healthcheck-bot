@@ -1,6 +1,6 @@
 import Joi from '@hapi/joi';
 
-export default Joi.object()
+const configSchema = Joi.object()
   .keys({
     BOT_TOKEN: Joi.string().required(),
     PORT: Joi.string(),
@@ -9,3 +9,5 @@ export default Joi.object()
     TELEGRAM_CHANNEL: Joi.string().required()
   })
   .unknown(true);
+
+export default (o: {}) => Joi.assert(o, configSchema);

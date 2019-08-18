@@ -1,11 +1,3 @@
-import dotenv from 'dotenv';
-import Joi from '@hapi/joi';
-import configSchema from './config-schema';
-
-dotenv.config();
-
-Joi.assert(process.env, configSchema);
-
 class ConfigError extends Error {}
 
 if (!process.env.URLS) {

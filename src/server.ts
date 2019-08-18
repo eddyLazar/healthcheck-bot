@@ -1,5 +1,13 @@
+import dotenv from 'dotenv';
+import validateConfig from './config/validate-config';
+dotenv.config();
+validateConfig(process.env);
+// eslint-disable-next-line
 import config from './config';
+// eslint-disable-next-line
 import bootstrap from './bootstrap';
+
+validateConfig(process.env);
 
 const { app, job } = bootstrap();
 

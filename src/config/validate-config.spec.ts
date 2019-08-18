@@ -1,5 +1,4 @@
-import confSchema from './config-schema';
-import Joi from '@hapi/joi';
+import validateConfig from './validate-config';
 
 const validConfig = {
   PORT: '3000',
@@ -10,8 +9,7 @@ const validConfig = {
 };
 
 test('given valid config should pass', () => {
-  const { error } = Joi.validate(validConfig, confSchema);
-  expect(error).toBe(null);
+  expect(() => validateConfig(validConfig)).not.toThrowError();
 });
 
 test('given invalid `TELEGRAM_CHANNEL` should fail', () => {
@@ -20,7 +18,7 @@ test('given invalid `TELEGRAM_CHANNEL` should fail', () => {
     TELEGRAM_CHANNEL: null
   };
 
-  expect(() => Joi.assert(testObject, confSchema)).toThrowError();
+  expect(() => validateConfig(testObject)).toThrowError();
 });
 
 describe('given invalid `URLS` should throw error', () => {
@@ -30,7 +28,7 @@ describe('given invalid `URLS` should throw error', () => {
       URLS: null
     };
 
-    expect(() => Joi.assert(testObject, confSchema)).toThrowError();
+    expect(() => validateConfig(testObject)).toThrowError();
   });
 });
 
@@ -40,7 +38,7 @@ test('given invalid `BOT_TOKEN` should fail', () => {
     BOT_TOKEN: null
   };
 
-  expect(() => Joi.assert(testObject, confSchema)).toThrowError();
+  expect(() => validateConfig(testObject)).toThrowError();
 });
 
 test('given invalid `PORT` should fail', () => {
@@ -49,7 +47,7 @@ test('given invalid `PORT` should fail', () => {
     PORT: null
   };
 
-  expect(() => Joi.assert(testObject, confSchema)).toThrowError();
+  expect(() => validateConfig(testObject)).toThrowError();
 });
 
 test('given invalid `TIMEOUT` should fail', () => {
@@ -58,5 +56,5 @@ test('given invalid `TIMEOUT` should fail', () => {
     TIMEOUT: null
   };
 
-  expect(() => Joi.assert(testObject, confSchema)).toThrowError();
+  expect(() => validateConfig(testObject)).toThrowError();
 });
