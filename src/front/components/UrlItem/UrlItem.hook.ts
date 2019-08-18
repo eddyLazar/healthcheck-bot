@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import Axios from 'axios';
+import Api from '../../api';
 
 export enum HealthState {
   isPending = 'isPending',
@@ -12,7 +12,7 @@ export const useHealthCheck = (url: string): [HealthState, () => void] => {
 
   const checkUrl = useCallback(() => {
     setState(HealthState.isPending);
-    Axios.get(`/health-check?url=${url}`)
+    Api.checkUrl(url)
       .then(() => setState(HealthState.success))
       .catch(() => setState(HealthState.error));
   }, []);
