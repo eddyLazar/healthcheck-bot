@@ -1,18 +1,14 @@
 import { HealthState } from './UrlItem.hook';
-
-const colors = {
-  error: '#fff1f0',
-  success: '#f6ffed'
-};
+import theme from '../../theme';
 
 const getStyle = (urlState: HealthState) => {
   let color = 'transparent';
   switch (urlState) {
     case HealthState.error:
-      color = colors.error;
+      color = theme.colors.listItem.error;
       break;
     case HealthState.success:
-      color = colors.success;
+      color = theme.colors.listItem.success;
       break;
     default:
       break;
