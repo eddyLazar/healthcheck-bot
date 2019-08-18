@@ -5,7 +5,7 @@ validateConfig(process.env);
 // eslint-disable-next-line
 import config from './config';
 // eslint-disable-next-line
-import bootstrap from './bootstrap';
+import bootstrap from './server/bootstrap';
 
 validateConfig(process.env);
 

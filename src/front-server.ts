@@ -1,7 +1,7 @@
 import config from './config';
 import Bundler from 'parcel-bundler';
-import healthCheckRoute from './routes/health-check';
-import makeRequest from './lib/makeRequest';
+import healthCheckRoute from './server/routes/health-check';
+import makeRequest from './server/lib/makeRequest';
 import express from 'express';
 
 const app = express();

@@ -1,5 +1,5 @@
 import TelegramBot from './bots/telegram';
-import config from './config';
+import config from '../config';
 import express from 'express';
 import HealthCheck from './services/HealthCheck';
 import makeRequest from './lib/makeRequest';

@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from 'antd/lib/button';
-import 'antd/lib/button/style/css';
+import 'src/server/types/antd/lib/button/style/css';
 
 interface Props {
   isLoading?: boolean;

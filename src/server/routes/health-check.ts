@@ -1,4 +1,4 @@
-import { MakeRequest } from 'app.d';
+import { MakeRequest } from 'app';
 import Joi from '@hapi/joi';
 import httpStatus from 'http-status';
 import { Express } from 'express';
