@@ -5,3 +5,10 @@
   margin-top: 100px;
   padding: 24px;
 }
+
+@media screen and (min-width: 1024px) {
+  #root {
+    max-width: 600px;
+
+  }
+}

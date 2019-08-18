@@ -5,6 +5,7 @@
   "main": "dist/server.js",
   "scripts": {
     "watch-front": "parcel src/front/index.html watch",
+    "node-front": "node dist/dist/front-server.js",
     "build-front": "parcel src/front/index.html build",
     "test": "jest --forceExit --coverage --verbose",
     "watch-test": "jest --forceExit --watchAll --verbose",
@@ -20,6 +21,7 @@
   "license": "MIT",
   "devDependencies": {
     "@types/jest": "^24.0.16",
+    "@types/parcel-bundler": "^1.12.0",
     "@typescript-eslint/eslint-plugin": "^1.13.0",
     "@typescript-eslint/parser": "^1.13.0",
     "concurrently": "^4.1.1",

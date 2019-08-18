@@ -31,9 +31,9 @@ const bootstrap = () => {
 
   healthCheckRoute(app, makeRequest);
 
-  app.get('/', (req, res) => {
-    res.send('Hello world update was great\n');
-  });
+  // app.get('/', (req, res) => {
+  //   res.send('Hello world update was great\n');
+  // });
 
   return { app, job };
 };

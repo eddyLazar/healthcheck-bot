@@ -1,11 +1,27 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import Axios from 'axios';
 
-type UrlState = 'isPending' | 'success' | 'error';
+export enum HealthState {
+  isPending = 'isPending',
+  success = 'success',
+  error = 'error'
+}
 
 export const useHealthCheck = (url: string) => {
-  const [urlState] = useState<UrlState>('isPending');
+  const [healthState, setState] = useState<HealthState>(HealthState.isPending);
 
-  useEffect(() => {});
+  const checkUrl = useCallback(() => {
+    setState(HealthState.isPending);
+    Axios.get(`/health-check?url=${url}`)
+      .then(() => setState(HealthState.success))
+      .catch(() => setState(HealthState.error));
+  }, []);
 
-  return urlState;
+  useEffect(() => {
+    checkUrl();
+    const interval = setInterval(checkUrl, 10000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return [healthState, checkUrl];
 };
