@@ -7,7 +7,7 @@ export enum HealthState {
   error = 'error'
 }
 
-export const useHealthCheck = (url: string) => {
+export const useHealthCheck = (url: string): [HealthState, () => void] => {
   const [healthState, setState] = useState<HealthState>(HealthState.isPending);
 
   const checkUrl = useCallback(() => {

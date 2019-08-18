@@ -2,8 +2,7 @@ import React from 'react';
 import List from 'antd/lib/list';
 import RefreshButton from '../RefreshButton';
 import { useHealthCheck, HealthState } from './UrlItem.hook';
-import Icon from 'antd/lib/icon';
-import 'antd/lib/alert/style/css';
+import HealthIcon from './HealthIcon';
 
 interface Props {
   url: string;
@@ -30,12 +29,6 @@ const UrlItem = ({ url }: Props) => {
   const [healthState, checkUrl] = useHealthCheck(url);
 
   const color = getColor(healthState);
-  const errorIcon = (
-    <Icon type="close-circle" theme="twoTone" twoToneColor="#f5222d" />
-  );
-  const successIcon = (
-    <Icon type="check-circle" theme="twoTone" twoToneColor="#52c41a" />
-  );
 
   return (
     <List.Item
@@ -50,8 +43,7 @@ const UrlItem = ({ url }: Props) => {
       <List.Item.Meta
         title={
           <a target="_blank" rel="noopener noreferrer" href={url}>
-            {healthState === HealthState.success && successIcon}
-            {healthState === HealthState.error && errorIcon} {url}
+            <HealthIcon health={healthState} /> {url}
           </a>
         }
       />
