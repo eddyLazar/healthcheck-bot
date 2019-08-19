@@ -6,8 +6,8 @@ validateConfig(process.env);
 import config from './config';
 // eslint-disable-next-line
 import bootstrap from './server/bootstrap';
-
-validateConfig(process.env);
+// eslint-disable-next-line
+import Bundler from 'parcel-bundler';
 
 const { app, job } = bootstrap();
 

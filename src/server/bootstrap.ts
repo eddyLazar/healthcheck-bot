@@ -4,6 +4,7 @@ import express from 'express';
 import HealthCheck from './services/HealthCheck';
 import makeRequest from './lib/makeRequest';
 import healthCheckRoute from './routes/health-check';
+import webAppRoutes from './routes/web-app';
 
 const bootstrap = () => {
   const telegramBot = new TelegramBot(config.telegramChannel, config.botToken, {
@@ -29,11 +30,9 @@ const bootstrap = () => {
 
   const app = express();
 
-  healthCheckRoute(app, makeRequest);
+  webAppRoutes(app);
 
-  // app.get('/', (req, res) => {
-  //   res.send('Hello world update was great\n');
-  // });
+  healthCheckRoute(app, makeRequest);
 
   return { app, job };
 };

@@ -5,13 +5,13 @@
   "main": "dist/server.js",
   "scripts": {
     "watch-front": "node dist/front-server.js",
-    "build-front": "parcel build src/front/index.html",
+    "build-front": "parcel build src/front/index.html  -d dist/webapp",
     "test": "jest --forceExit --coverage --verbose",
     "watch-test": "jest --forceExit --watchAll --verbose",
     "lint": "eslint \"**/*.{js,ts}\" --quiet --fix",
     "build-ts": "tsc",
     "watch-ts": "tsc -w",
-    "build": "npm run build-ts",
+    "build": "npm run build-ts && npm run build-front",
     "watch-node": "nodemon dist/server.js",
     "start": "node dist/server.js",
     "dev": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"yellow.bold,cyan.bold\" \"npm run watch-ts\" \"npm run watch-node\" "
@@ -35,6 +35,7 @@
     "jest": "^24.8.0",
     "nodemon": "^1.19.1",
     "parcel-bundler": "^1.12.3",
+    "parcel-plugin-bundle-visualiser": "^1.2.0",
     "supertest": "^4.0.2",
     "ts-jest": "^24.0.2",
     "typescript": "^3.5.3"
