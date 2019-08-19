@@ -1,15 +1,14 @@
-body {
-  padding-top: 80px;
-}
-
 #root {
   width: 100%;
   margin: 0 auto;
   display: block;
-  /* padding: 24px 0px; */
 }
 
 @media screen and (min-width: 1024px) {
+  body {
+    padding-top: 80px;
+  }
+
   #root {
     max-width: 600px;
   }
