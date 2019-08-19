@@ -50,6 +50,15 @@ test('given invalid `PORT` should fail', () => {
   expect(() => validateConfig(testObject)).toThrowError();
 });
 
+test('given empty `PORT` should NOT fail', () => {
+  const testObject = {
+    ...validConfig,
+    PORT: ''
+  };
+
+  expect(() => validateConfig(testObject)).not.toThrowError();
+});
+
 test('given invalid `TIMEOUT` should fail', () => {
   const testObject = {
     ...validConfig,
@@ -57,4 +66,13 @@ test('given invalid `TIMEOUT` should fail', () => {
   };
 
   expect(() => validateConfig(testObject)).toThrowError();
+});
+
+test('given empty `TIMEOUT` should NOT fail', () => {
+  const testObject = {
+    ...validConfig,
+    TIMEOUT: ''
+  };
+
+  expect(() => validateConfig(testObject)).not.toThrowError();
 });

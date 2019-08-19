@@ -5,7 +5,7 @@
   "main": "dist/server.js",
   "scripts": {
     "watch-front": "node dist/front-server.js",
-    "build-front": "parcel src/front/index.html build",
+    "build-front": "parcel build src/front/index.html",
     "test": "jest --forceExit --coverage --verbose",
     "watch-test": "jest --forceExit --watchAll --verbose",
     "lint": "eslint \"**/*.{js,ts}\" --quiet --fix",
@@ -56,6 +56,7 @@
     "node-fetch": "^2.6.0",
     "node-telegram-bot-api": "^0.30.0",
     "react": "^16.9.0",
-    "react-dom": "^16.9.0"
+    "react-dom": "^16.9.0",
+    "src": "^1.1.2"
   }
 }
