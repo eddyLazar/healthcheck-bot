@@ -26,17 +26,12 @@ export default class {
     detination: ChatDestination,
     conf: CheckConfig = { alert: true, success: false }
   ) {
-    return this.urls.map(url => {
-      const promise = this.checkUrl(url);
-
-      if (conf.success) {
-        promise.then(() => this.bot.sendOk(url, detination));
-      }
-      if (conf.alert) {
-        promise.catch(() => this.bot.sendAlert(url, detination));
-      }
-
-      return promise;
-    });
+    return this.urls.map(url =>
+      this.checkUrl(url)
+        .then(() => conf.success && this.bot.sendOk(url, detination))
+        .catch(() => {
+          conf.alert && this.bot.sendAlert(url, detination);
+        })
+    );
   }
 }
