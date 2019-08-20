@@ -7,7 +7,7 @@ import healthCheckRoute from './routes/health-check';
 import webAppRoutes from './routes/web-app';
 
 const bootstrap = () => {
-  const telegramBot = new TelegramBot(config.telegramChannel, config.botToken, {
+  const telegramBot = new TelegramBot(config.botToken, {
     polling: true
   });
 

@@ -3,17 +3,6 @@ import { CommandCallbackType, ChatDestination } from 'app';
 import { composeAlert, composeOk } from './messages';
 
 export default class extends TelegramBot {
-  channelId: string | number;
-
-  constructor(
-    channelId: string | number,
-    token: string,
-    options: TelegramBot.ConstructorOptions = {}
-  ) {
-    super(token, options);
-    this.channelId = channelId;
-  }
-
   sendAlert(url: string, chatId: ChatDestination) {
     return this.sendMessage(chatId, composeAlert(url));
   }
