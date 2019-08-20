@@ -67,9 +67,11 @@ npm start
 
 App is also availible as docker container
 
-## Deployment
+## TODO
 
-Add additional notes about how to deploy this on a live system
+- [ ] Add other messengers support(what's up, slack, viber)
+- [ ] Add verbose name for urls
+- [ ] add triggers for urls when they are down
 
 ### run
 
