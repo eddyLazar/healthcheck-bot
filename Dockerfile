@@ -17,10 +17,8 @@ ENV PARCEL_WORKERS 1
 
 RUN npm run build-ts
 
-RUN chmod +x ./entrypoint.sh
-
-RUN cat ./entrypoint.sh
+RUN npm run build-front
 
 EXPOSE 8080
 
-ENTRYPOINT [ "sh", "entrypoint.sh" ]
+CMD ["npm", "start"]
