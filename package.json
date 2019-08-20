@@ -4,7 +4,7 @@
   "description": "",
   "main": "dist/main.js",
   "scripts": {
-    "watch-front": "node dist/front.js",
+    "watch-front": "npm run build-ts && node dist/front.js",
     "build-front": "parcel build src/front/index.html  -d dist/webapp",
     "test": "jest --forceExit --coverage --verbose",
     "watch-test": "jest --forceExit --watchAll --verbose",

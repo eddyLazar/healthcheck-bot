@@ -1,13 +1,12 @@
 import React from 'react';
 import UrlsContainer from './components/UrlsContainer/UrlsContainer';
 import GithubRibbon from './components/GithubRibbon';
-import config from '../config';
 
 const App = () => (
-  <div>
+  <React.Fragment>
     <GithubRibbon />
-    <UrlsContainer urls={config.urls} />
-  </div>
+    <UrlsContainer />
+  </React.Fragment>
 );
 
 export default App;

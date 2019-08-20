@@ -5,6 +5,7 @@ import HealthCheck from './services/HealthCheck';
 import makeRequest from './lib/makeRequest';
 import healthCheckRoute from './routes/health-check';
 import webAppRoutes from './routes/web-app';
+import resourceRoutes from './routes/resources';
 
 const bootstrap = () => {
   const telegramBot = new TelegramBot(config.botToken, {
@@ -33,6 +34,8 @@ const bootstrap = () => {
   webAppRoutes(app);
 
   healthCheckRoute(app, makeRequest);
+
+  resourceRoutes(app, config.urls);
 
   return { app, job };
 };

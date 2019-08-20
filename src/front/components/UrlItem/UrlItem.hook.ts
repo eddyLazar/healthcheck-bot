@@ -1,6 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
 import Api from '../../api';
-import config from '../../../config';
 
 export enum HealthState {
   isPending = 'isPending',
@@ -20,7 +19,7 @@ export const useHealthCheck = (url: string): [HealthState, () => void] => {
 
   useEffect(() => {
     checkUrl();
-    const interval = setInterval(checkUrl, config.timeout);
+    const interval = setInterval(checkUrl, 10000);
     return () => clearInterval(interval);
   }, []);
 
