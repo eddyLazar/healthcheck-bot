@@ -67,19 +67,17 @@ npm start
 
 App is also availible as docker container
 
-## TODO
-
-- [ ] Add other messengers support(what's up, slack, viber)
-- [ ] Add verbose name for urls
-- [ ] add triggers for urls when they are down
-
-### run
-
 Assuming you have `.env` file with all needed variables
 
 ```
 docker run -p 49160:8080  --env-file=.env  eddylazar/healthcheck-bot
 ```
+
+## TODO
+
+- [ ] Add other messengers support(what's up, slack, viber)
+- [ ] Add verbose name for urls
+- [ ] add triggers for urls when they are down
 
 ## Built With
 
