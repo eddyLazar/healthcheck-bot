@@ -1,4 +1,6 @@
 # Healthcheck bot
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FeddyLazar%2Fhealthcheck-bot.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FeddyLazar%2Fhealthcheck-bot?ref=badge_shield)
+
 
 > Be the first one to know that your website is down!
 
@@ -92,3 +94,6 @@ Please make sure to update tests as appropriate.
 ## License
 
 MIT
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FeddyLazar%2Fhealthcheck-bot.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FeddyLazar%2Fhealthcheck-bot?ref=badge_large)
